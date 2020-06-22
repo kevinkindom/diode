@@ -70,3 +70,5 @@ kubectl get secret gitlab-token-abcde -n gitlab -o json
 在Gitlab中以此访问`运维/Kubernetes`，打开刚添加的K8S，在应用程序中，我们先自动安装`Helm Tiller`，等待`Helm Tiller`安装完成后，我们再安装`Gitlab Runner`，当全部完成后，我们应该可以在`CI/CD`中的`Runner`发现已激活的`Runner`了。
 
 此时Gitlab Runner也配置完成。
+
+接下来我们可以准备CI/CD的工作了。

@@ -115,11 +115,11 @@ build_docker:
   tags:
     - fek8s
   script:
-    # 这个镜像后面会说到，它是前端服务的基础镜像
+    # 这个镜像后面会说到，它是服务的基础镜像
     - export CACHE_IMAGE=harbor.com/frontend/gaia_nginx:latest
     # 拉取镜像，并抑制因stderr的输出导致ci/cd执行失败
     - docker pull $CACHE_IMAGE || true
-    # 构建前端服务镜像
+    # 构建服务镜像
     - docker build --cache-from $CACHE_IMAGE -t $DOCKER_IMAGE_TAG -f gaia/Dockerfile .
     # 登录私有化Docker服务
     # 考虑到不同的用户，登录账号密码都不同，所以将其做成变量
@@ -159,4 +159,4 @@ deploy_server:
     - curl -X POST 10.13.82.219:3500/svc
 ```
 
-至此我们的ci脚本已配置完毕，接下来我们完成本文遗留下来的一些基础镜像和服务
+至此我们的ci脚本已配置完毕，接下来我们完成本文遗留下来的一些基础镜像和服务。
